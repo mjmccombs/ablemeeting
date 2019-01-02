@@ -32,10 +32,19 @@ class Sider extends PureComponent {
         className={styles.sider}
       >
         <div className={styles.brand}>
-          <div className={styles.logo}>
-            <img alt="logo" src={config.logoPath} />
-            {collapsed ? null : <h1>{config.siteName}</h1>}
-          </div>
+          {collapsed ? (
+            <div className={styles.logoSmall}>
+              <img
+                alt="logo"
+                style={{ width: 40, height: 40 }}
+                src={config.smallLogoPath}
+              />
+            </div>
+          ) : (
+            <div className={styles.logo}>
+              <img alt="logo" src={config.logoPath} />
+            </div>
+          )}
         </div>
 
         <div className={styles.menuContainer}>
@@ -54,11 +63,7 @@ class Sider extends PureComponent {
             />
           </ScrollBar>
         </div>
-        {collapsed ? null : (
-          <div className={styles.switchTheme}>
-            
-          </div>
-        )}
+        {collapsed ? null : <div className={styles.switchTheme} />}
       </Layout.Sider>
     )
   }
