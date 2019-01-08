@@ -1,5 +1,5 @@
 import { Mock, Constant } from './_utils'
-
+const axios = require('axios')
 const { ApiPrefix, Color } = Constant
 
 const Dashboard = Mock.mock({
@@ -137,6 +137,16 @@ const Dashboard = Mock.mock({
 
 module.exports = {
   [`GET ${ApiPrefix}/dashboard`](req, res) {
+    axios.get('http://localhost:3000/api/v1/interview')
+    .then(response => {
+      console.log(response.data);
+      console.log(response.data);
+    })
+    .catch(error => {
+      console.log(error);
+    });
+    // res.json({})
     res.json(Dashboard)
+    //mark
   },
 }
