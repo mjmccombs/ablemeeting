@@ -69,7 +69,7 @@ const Dashboard = Mock.mock({
     {
       name: '@last',
       'status|3': 1,
-      content: 'This will the section for short personal explanations of upcoming recruits.',
+      content: 'Company Name',
       avatar() {
         return Mock.Random.image(
           '48x48',
@@ -137,16 +137,58 @@ const Dashboard = Mock.mock({
 
 module.exports = {
   [`GET ${ApiPrefix}/dashboard`](req, res) {
-    axios.get('http://localhost:3000/api/v1/interview')
+
+
+    axios.get(process.env.URL + "interview/findByManagerID/UNIQUEUSERID1")
     .then(response => {
-      console.log(response.data);
-      console.log(response.data);
+      const interviews = response.data
+
+      var recentSales = []
+      var comments = []
+      var avatar = "http://dummyimage.com/48x48/79a9f2/757575.png&text="
+
+      for (let index = 0; index < interviews.length; index++) {
+        const interview = interviews[index]
+        var recentSale = {}
+
+        if(interview.status == "Awaiting Candidate")
+          recentSale.status = 2
+        else
+          recentSale.status = 4
+        
+        recentSale.name = interview.name
+        recentSale.date = interview.date
+
+        recentSales.push(recentSale)
+      }
+
+      for (let index = 0; index < interviews.length; index++) {
+        const interview = interviews[index]
+        var comment = {}
+
+        if(interview.status == "Awaiting Candidate")
+          comment.status = 2
+        else
+          comment.status = 3
+        
+        comment.name = interview.name
+        comment.date = interview.date
+        comment.avatar = avatar + interview.name[0]
+        comment.content = interview.company
+
+        comments.push(comment)
+      }
+
+
+
+      Dashboard.recentSales = recentSales
+      Dashboard.comments = comments 
+      res.json(Dashboard)
     })
     .catch(error => {
-      console.log(error);
-    });
-    // res.json({})
-    res.json(Dashboard)
-    //mark
+      console.log(error)
+    })
+
+
   },
 }
