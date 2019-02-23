@@ -15,7 +15,7 @@ class App extends React.Component {
   render() {
     return (
 
-      <Home openLogin={this.props.openLogin}/>
+      <Home openLogin={this.props.openLogin} signUpSheet={this.props.signUpSheet}/>
       
     );
   }

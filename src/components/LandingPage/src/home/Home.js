@@ -56,7 +56,7 @@ class FullPageIntroWithFixedNavbar extends React.Component {
                     <li><a href="#pricing">Pricing</a></li>                                                            
                     <li className="block-btn" style={styles.button}>
                         <a href="#" onClick={() => this.props.openLogin()} className="block2">Log In</a>
-                        <a href="#" className="block">Try for Free</a>
+                        <a href="#" onClick={() => this.props.signUpSheet()} className="block">Try for Free</a>
                     </li>                                                                      
                   </ul>
                 </nav>

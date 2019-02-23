@@ -46,6 +46,12 @@ class Login extends PureComponent {
     )
   }
 
+  signUpSheet() {
+    console.log("practice makes perfect!")
+  }
+
+
+
   render() {
     const { loading, form, i18n } = this.props
     const { getFieldDecorator } = form
@@ -74,7 +80,7 @@ class Login extends PureComponent {
     return (
       <Fragment>
 
-        <Home openLogin={this.openLogin} />
+        <Home openLogin={this.openLogin} signUpSheet={this.signUpSheet}/>
 
         <Modal
           visible={this.state.visible}
