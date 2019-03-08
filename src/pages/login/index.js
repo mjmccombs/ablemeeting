@@ -10,17 +10,15 @@ import config from 'utils/config'
 import styles from './index.less'
 
 import Home from '../../components/LandingPage'
+import SignUpForm from '../../components/SignUpForm/index.js'
 const FormItem = Form.Item
 
 @withI18n()
 @connect(({ loading }) => ({ loading }))
 @Form.create()
 class Login extends PureComponent {
-
   constructor() {
     super()
-    
-    this.openLogin = this.openLogin.bind(this)
   }
 
   handleOk = () => {
@@ -36,21 +34,25 @@ class Login extends PureComponent {
 
   state = {
     visible: false,
+    modalProps: {
+      visible: false,
+    },
+    giantasshole: 'shithead',
   }
 
-  openLogin() {
-    this.setState(
-      {
-        visible: !this.state.visible
-      }
-    )
+  openLogin = () => {
+    this.setState({
+      visible: !this.state.visible,
+    })
   }
 
-  signUpSheet() {
-    console.log("practice makes perfect!")
+  toggleForm = () => {
+    this.setState({
+      modalProps: {
+        visible: !this.state.modalProps.visible,
+      },
+    })
   }
-
-
 
   render() {
     const { loading, form, i18n } = this.props
@@ -75,12 +77,10 @@ class Login extends PureComponent {
         }))
       )
     }
-    
 
     return (
       <Fragment>
-
-        <Home openLogin={this.openLogin} signUpSheet={this.signUpSheet}/>
+        <Home openLogin={this.openLogin} toggleForm={this.toggleForm} />
 
         <Modal
           visible={this.state.visible}
@@ -144,6 +144,11 @@ class Login extends PureComponent {
             </form>
           </div>
         </Modal>
+
+        <SignUpForm
+          modalProps={this.state.modalProps}
+          toggleForm={this.toggleForm}
+        />
       </Fragment>
     )
   }
