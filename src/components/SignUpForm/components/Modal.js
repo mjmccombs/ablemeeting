@@ -1,17 +1,25 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
-import { Form, Input, InputNumber, Radio, Modal, Cascader } from 'antd'
+import {
+  Form,
+  Input,
+  InputNumber,
+  Radio,
+  Modal,
+  Cascader,
+  Button,
+  Row,
+} from 'antd'
 import { Trans, withI18n } from '@lingui/react'
 import city from 'utils/city'
 
 const FormItem = Form.Item
+import styles from '../../../pages/login/index.less'
+import config from 'utils/config'
 
 const formItemLayout = {
   labelCol: {
     span: 6,
-  },
-  wrapperCol: {
-    span: 14,
   },
 }
 @withI18n()
@@ -29,7 +37,8 @@ class UserModal extends PureComponent {
         ...getFieldsValue(),
         key: item.key,
       }
-      data.address = data.address.join(' ')
+
+      console.log(data)
       onOk(data)
     })
   }
@@ -39,78 +48,14 @@ class UserModal extends PureComponent {
     const { getFieldDecorator } = form
 
     return (
-      <Modal
-        {...modalProps}
-        onOk={this.handleOk}
-        onCancel={this.props.toggleForm}
-      >
-        <Form layout="horizontal">
-          <FormItem label={i18n.t`Name`} hasFeedback {...formItemLayout}>
-            {getFieldDecorator('name', {
-              initialValue: item.name,
-              rules: [
-                {
-                  required: true,
-                },
-              ],
-            })(<Input />)}
-          </FormItem>
-          <FormItem label={i18n.t`NickName`} hasFeedback {...formItemLayout}>
-            {getFieldDecorator('nickName', {
-              initialValue: item.nickName,
-              rules: [
-                {
-                  required: true,
-                },
-              ],
-            })(<Input />)}
-          </FormItem>
-          <FormItem label={i18n.t`Gender`} hasFeedback {...formItemLayout}>
-            {getFieldDecorator('isMale', {
-              initialValue: item.isMale,
-              rules: [
-                {
-                  required: true,
-                  type: 'boolean',
-                },
-              ],
-            })(
-              <Radio.Group>
-                <Radio value>
-                  <Trans>Male</Trans>
-                </Radio>
-                <Radio value={false}>
-                  <Trans>Female</Trans>
-                </Radio>
-              </Radio.Group>
-            )}
-          </FormItem>
-          <FormItem label={i18n.t`Age`} hasFeedback {...formItemLayout}>
-            {getFieldDecorator('age', {
-              initialValue: item.age,
-              rules: [
-                {
-                  required: true,
-                  type: 'number',
-                },
-              ],
-            })(<InputNumber min={18} max={100} />)}
-          </FormItem>
-          <FormItem label={i18n.t`Phone`} hasFeedback {...formItemLayout}>
-            {getFieldDecorator('phone', {
-              initialValue: item.phone,
-              rules: [
-                {
-                  required: true,
-                  pattern: /^1[34578]\d{9}$/,
-                  message: i18n.t`The input is not valid phone!`,
-                },
-              ],
-            })(<Input />)}
-          </FormItem>
-          <FormItem label={i18n.t`Email`} hasFeedback {...formItemLayout}>
+      <Modal {...modalProps} onCancel={this.props.toggleForm} footer={[]}>
+        <div className={styles.logo}>
+          <img alt="logo" src={config.logoPath} />
+        </div>
+        <Form layout="horizontal" style={{ height: 275, width: '100%' }}>
+          <FormItem hasFeedback {...formItemLayout} style={{ width: '100%' }}>
             {getFieldDecorator('email', {
-              initialValue: item.email,
+              initialValue: '',
               rules: [
                 {
                   required: true,
@@ -118,24 +63,33 @@ class UserModal extends PureComponent {
                   message: i18n.t`The input is not valid E-mail!`,
                 },
               ],
-            })(<Input />)}
+            })(<Input style={{ width: '100%' }} placeholder={i18n.t`Email`} />)}
           </FormItem>
-          <FormItem label={i18n.t`Address`} hasFeedback {...formItemLayout}>
-            {getFieldDecorator('address', {
-              initialValue: item.address && item.address.split(' '),
+          <FormItem hasFeedback {...formItemLayout}>
+            {getFieldDecorator('password', {
+              initialValue: '',
               rules: [
                 {
                   required: true,
                 },
               ],
             })(
-              <Cascader
-                style={{ width: '100%' }}
-                options={city}
-                placeholder={i18n.t`Pick an address`}
+              <Input
+                type="password"
+                onPressEnter={this.handleOk}
+                placeholder={i18n.t`Password`}
               />
             )}
           </FormItem>
+          <Row>
+            <Button
+              style={{ width: '100%' }}
+              type="primary"
+              onClick={this.handleOk}
+            >
+              <Trans>Sign up</Trans>
+            </Button>
+          </Row>
         </Form>
       </Modal>
     )
