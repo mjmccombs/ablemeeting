@@ -32,7 +32,7 @@ export default class Auth {
     var options = {
       auth: {
         redirect: false,
-        redirectUri: 'http://localhost:7000/api/v1/user/login',
+        redirectUri: process.env.URL + 'user/login',
       },
     }
 
