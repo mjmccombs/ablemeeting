@@ -28,6 +28,8 @@ class Header extends PureComponent {
       onAllNotificationsRead,
     } = this.props
 
+    // console.log(username)
+
     const rightContent = [
       <Menu key="user" mode="horizontal" onClick={this.handleClickMenu}>
         <SubMenu

@@ -77,24 +77,12 @@ export default {
 
       if (success && user) {
         const { list } = yield call(queryRouteList)
-        const { permissions } = user
         let routeList = list
-        if (
-          permissions.role === ROLE_TYPE.ADMIN ||
-          permissions.role === ROLE_TYPE.DEVELOPER
-        ) {
-          permissions.visit = list.map(item => item.id)
+        var permissions = {}
+        if (permissions === undefined || permissions.role === ROLE_TYPE.ADMIN) {
+          permissions.visit = list
         } else {
-          routeList = list.filter(item => {
-            const cases = [
-              permissions.visit.includes(item.id),
-              item.mpid
-                ? permissions.visit.includes(item.mpid) || item.mpid === '-1'
-                : true,
-              item.bpid ? permissions.visit.includes(item.bpid) : true,
-            ]
-            return cases.every(_ => _)
-          })
+          routeList = list
         }
         yield put({
           type: 'updateState',

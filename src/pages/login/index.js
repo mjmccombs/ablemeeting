@@ -13,12 +13,25 @@ import Home from '../../components/LandingPage'
 import SignUpForm from '../../components/SignUpForm/index.js'
 const FormItem = Form.Item
 
+import Auth from './Auth/Auth.js'
+
 @withI18n()
 @connect(({ loading }) => ({ loading }))
 @Form.create()
 class Login extends PureComponent {
   constructor() {
     super()
+
+    this.auth = new Auth(this.loginSuccess)
+  }
+
+  loginSuccess = (profile, authResult) => {
+    const { dispatch } = this.props
+    const values = {
+      profile: profile,
+      authResult: authResult,
+    }
+    dispatch({ type: 'login/login', payload: values })
   }
 
   handleOk = () => {
@@ -28,6 +41,7 @@ class Login extends PureComponent {
       if (errors) {
         return
       }
+      console.log(values)
       dispatch({ type: 'login/login', payload: values })
     })
   }
@@ -41,17 +55,21 @@ class Login extends PureComponent {
   }
 
   openLogin = () => {
-    this.setState({
-      visible: !this.state.visible,
-    })
+    // this.setState({
+    //   visible: !this.state.visible,
+    // })
+
+    this.auth.login()
   }
 
   toggleForm = () => {
-    this.setState({
-      modalProps: {
-        visible: !this.state.modalProps.visible,
-      },
-    })
+    // this.setState({
+    //   modalProps: {
+    //     visible: !this.state.modalProps.visible,
+    //   },
+    // })
+
+    this.auth.login()
   }
 
   render() {
@@ -80,6 +98,11 @@ class Login extends PureComponent {
 
     return (
       <Fragment>
+        <script
+          type="text/javascript"
+          src="node_modules/auth0-js/build/auth0.js"
+        />
+        <script src="https://cdn.auth0.com/js/lock/11.x.y/lock.min.js" />
         <Home openLogin={this.openLogin} toggleForm={this.toggleForm} />
 
         <Modal

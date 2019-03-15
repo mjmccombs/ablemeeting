@@ -54,6 +54,7 @@ class PrimaryLayout extends PureComponent {
       permissions,
       notifications,
     } = app
+
     const { isMobile } = this.state
     const { onCollapseChange } = this
 
@@ -75,9 +76,7 @@ class PrimaryLayout extends PureComponent {
     )
 
     // Query whether you have permission to enter this page
-    const hasPermission = currentRoute
-      ? permissions.visit.includes(currentRoute.id)
-      : false
+    const hasPermission = true
 
     // MenuParentId is equal to -1 is not a available menu.
     const menus = newRouteList.filter(_ => _.menuParentId !== '-1')
