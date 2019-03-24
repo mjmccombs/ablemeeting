@@ -187,6 +187,102 @@ class FullPageIntroWithFixedNavbar extends React.Component {
             </div>
           </div>
         </section>
+        <section class="section3" id="benefit">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-12">
+                <h1>Benefits Spotlight</h1>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-offset-1 col-md-10">
+                <div class="row list">
+                  <div class="col-sm-6 pull-right">
+                    <div class="right-part">
+                      <img
+                        src="/images/icon-Recruiters-Save.png"
+                        class="img-responsive"
+                      />
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="left-part">
+                      <h2>Recruiters Save Time</h2>
+                      <p>
+                        What would happen if we gave you hours of your time back
+                        every week? More sourcing? More time giving candidates
+                        the red carpet treatment? More sanity?
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="row list">
+                  <div class="col-sm-6">
+                    <div class="right-part">
+                      <img
+                        src="/images/icon-schedule-better-.png"
+                        class="img-responsive"
+                      />
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="left-part">
+                      <h2>
+                        Candidates And Interviewers Have A Better Scheduling
+                        Experience
+                      </h2>
+                      <p>
+                        AbleMeeting makes it easy for them to schedule with less
+                        opportunity for human error. Humans drive the bus!
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="row list">
+                  <div class="col-sm-6 pull-right">
+                    <div class="right-part">
+                      <img src="/images/icon-hero.png" class="img-responsive" />
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="left-part">
+                      <h2>We Make Recruiters Look Like Heroes</h2>
+                      <p>
+                        Because all the communication between AbleMeeting and
+                        your Candidates and Interviewers comes from you, the
+                        Recruiter! Not a silly AI robot responding to your high
+                        value clients behind your back.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="row list">
+                  <div class="col-sm-6">
+                    <div class="right-part">
+                      <img
+                        src="/images/icon-security.png"
+                        class="img-responsive"
+                      />
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="left-part">
+                      <h2>Secure</h2>
+                      <p>
+                        Did you know that in most cases when you give a website
+                        access to your calendar they can see ALL of your
+                        appointments with edit privileges! We think that is
+                        creepy which is why we don’t ask to connect to your
+                        calendar. You can sleep better at night with
+                        AbleMeeting. Your IT department will thank you.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
 
         <CarouselPage />
         <section className="section5" id="pricing">
