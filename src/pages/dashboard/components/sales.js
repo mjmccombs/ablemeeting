@@ -17,7 +17,7 @@ import styles from './sales.less'
 function Sales({ data }) {
   return (
     <div className={styles.sales}>
-      <div className={styles.title}>ANNUAL AVERAGES</div>
+      <div className={styles.title}>PAST 12 WEEKS</div>
       <ResponsiveContainer minHeight={360}>
         <LineChart data={data}>
           <Legend
@@ -84,23 +84,16 @@ function Sales({ data }) {
           />
           <Line
             type="monotone"
-            dataKey="Meetings"
+            dataKey="Interviews Initiated"
             stroke={Color.purple}
             strokeWidth={3}
             dot={{ fill: Color.purple }}
             activeDot={{ r: 5, strokeWidth: 0 }}
           />
+
           <Line
             type="monotone"
-            dataKey="Objectives Completed"
-            stroke={Color.red}
-            strokeWidth={3}
-            dot={{ fill: Color.red }}
-            activeDot={{ r: 5, strokeWidth: 0 }}
-          />
-          <Line
-            type="monotone"
-            dataKey="Length(minutes)"
+            dataKey="Interviews Completed"
             stroke={Color.green}
             strokeWidth={3}
             dot={{ fill: Color.green }}

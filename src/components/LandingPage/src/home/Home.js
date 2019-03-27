@@ -64,7 +64,7 @@ class FullPageIntroWithFixedNavbar extends React.Component {
                       <a href="#work">How it Works</a>
                     </li>
                     <li>
-                      <a href="#benefit">Benefit</a>
+                      <a href="#benefit">Benefits</a>
                     </li>
                     <li>
                       <a href="#testimonials">Testimonials</a>
@@ -388,7 +388,7 @@ class FullPageIntroWithFixedNavbar extends React.Component {
             <div className="row">
               <div className="col-sm-4">
                 <div className="box1">
-                  <p>© 2018 AbleMeeting</p>
+                  <p>© 2019 AbleMeeting</p>
                   <a href="#">Sign Up</a>
                 </div>
               </div>

@@ -2,13 +2,14 @@ import { Mock, Constant } from './_utils'
 const axios = require('axios')
 const { ApiPrefix, Color } = Constant
 
+// MAIN DASHBOARD
 const Dashboard = Mock.mock({
   'sales|8': [
     {
       'name|+1': 2011,
-      'Meetings|100-150': 1,
+      'Interviews Initiated|100-150': 1,
       'Objectives Completed|150-300': 1,
-      'Length(minutes)|30-180': 1,
+      'Interviews Completed|30-180': 1,
     },
   ],
   cpu: {
@@ -58,13 +59,13 @@ const Dashboard = Mock.mock({
     sales: 140,
     sold: 450,
   },
-  'completed|12': [
-    {
-      'name|+1': 2011,
-      'Our company|500-1000': 1,
-      'Our competition|100-400': 1,
-    },
-  ],
+  // 'completed|12': [
+  //   {
+  //     'name|+1': 2011,
+  //     'Our company|500-1000': 1,
+  //     'Our competition|100-400': 1,
+  //   },
+  // ],
   'comments|5': [
     {
       name: '@last',

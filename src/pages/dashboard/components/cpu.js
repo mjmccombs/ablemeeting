@@ -12,6 +12,7 @@ import {
 } from 'recharts'
 import styles from './cpu.less'
 
+// CALENDAR function on main dashboard
 const countUpProps = {
   start: 0,
   duration: 2.75,

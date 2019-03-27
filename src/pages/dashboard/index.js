@@ -31,6 +31,8 @@ const bodyStyle = {
   dashboard,
   loading,
 }))
+
+// this holds ...
 class Dashboard extends PureComponent {
   render() {
     const { avatar, username, dashboard, loading } = this.props
@@ -60,7 +62,7 @@ class Dashboard extends PureComponent {
       >
         <Row gutter={24}>
           {numberCards}
-          <Col lg={18} md={24}>
+          <Col lg={24} md={24}>
             <Card
               bordered={false}
               bodyStyle={{
@@ -70,10 +72,10 @@ class Dashboard extends PureComponent {
               <Sales data={sales} />
             </Card>
           </Col>
-          <Col lg={6} md={24}>
+          {/* {/* <Col lg={0} md={0}>
             <Row gutter={24}>
-              <Col lg={24} md={12}>
-                <Card
+              <Col lg={0} md={0}>
+                {/* <Card
                   bordered={false}
                   className={styles.weather}
                   bodyStyle={{
@@ -86,10 +88,10 @@ class Dashboard extends PureComponent {
                     {...weather}
                     loading={loading.effects['dashboard/queryWeather']}
                   />
-                </Card>
+                </Card> }
               </Col>
               <Col lg={24} md={12}>
-                <Card
+                {/* <Card
                   bordered={false}
                   className={styles.quote}
                   bodyStyle={{
@@ -101,52 +103,80 @@ class Dashboard extends PureComponent {
                   <ScrollBar>
                     <Quote {...quote} />
                   </ScrollBar>
-                </Card>
-              </Col>
+                </Card> }
+              </Col> }
             </Row>
-          </Col>
+          </Col> */}
           <Col lg={12} md={24}>
-            <Card bordered={false} {...bodyStyle}>
+            <Card
+              title={<div className={styles.title}>Upcoming Interviews</div>}
+              bordered={false}
+              {...bodyStyle}
+            >
               <RecentSales data={recentSales} />
             </Card>
           </Col>
           <Col lg={12} md={24}>
-            <Card bordered={false} {...bodyStyle}>
+            <Card
+              title={<div className={styles.title}>Completed Interviews</div>}
+              bordered={false}
+              {...bodyStyle}
+            >
+              <ScrollBar>
+                <Comments data={comments} />
+              </ScrollBar>
+            </Card>
+          </Col>{' '}
+          <Col lg={12} md={24}>
+            <Card
+              title={<div className={styles.title}>Current Job Orders</div>}
+              bordered={false}
+              {...bodyStyle}
+            >
+              <RecentSales data={recentSales} />
+            </Card>
+          </Col>
+          <Col lg={12} md={24}>
+            <Card
+              title={<div className={styles.title}>Past Job Orders</div>}
+              bordered={false}
+              {...bodyStyle}
+            >
               <ScrollBar>
                 <Comments data={comments} />
               </ScrollBar>
             </Card>
           </Col>
-          <Col lg={24} md={24}>
-            <Card
+          {/* <Col lg={24} md={24}>
+            {/* <Card
               bordered={false}
               bodyStyle={{
                 padding: '24px 36px 24px 0',
               }}
             >
               <Completed data={completed} />
-            </Card>
-          </Col>
-          <Col lg={8} md={24}>
+            </Card>}
+          </Col> */}
+          {/* <Col lg={8} md={24}>
             <Card bordered={false} {...bodyStyle}>
               <Browser data={browser} />
             </Card>
-          </Col>
-          <Col lg={8} md={24}>
+          </Col> */}
+          {/* <Col lg={8} md={24}>
             <Card bordered={false} {...bodyStyle}>
               <ScrollBar>
                 <Cpu {...cpu} />
               </ScrollBar>
             </Card>
-          </Col>
-          <Col lg={8} md={24}>
+          </Col> */}
+          {/* <Col lg={8} md={24}>
             <Card
               bordered={false}
               bodyStyle={{ ...bodyStyle.bodyStyle, padding: 0 }}
             >
               <User {...user} avatar={avatar} username={username} />
             </Card>
-          </Col>
+          </Col> */}
         </Row>
       </Page>
     )

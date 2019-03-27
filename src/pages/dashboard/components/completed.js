@@ -14,95 +14,101 @@ import {
 } from 'recharts'
 import styles from './completed.less'
 
+// JOB RETENTION (will be taken out) on main dashboard
+
 function Completed({ data }) {
   return (
-    <div className={styles.sales}>
-      <div className={styles.title}>JOB RETENTION</div>
-      <ResponsiveContainer minHeight={360}>
-        <AreaChart data={data}>
-          <Legend
-            verticalAlign="top"
-            content={prop => {
-              const { payload } = prop
-              return (
-                <ul
-                  className={classnames({
-                    [styles.legend]: true,
-                    clearfix: true,
-                  })}
-                >
-                  {payload.map((item, key) => (
-                    <li key={key}>
-                      <span
-                        className={styles.radiusdot}
-                        style={{ background: item.color }}
-                      />
-                      {item.value}
-                    </li>
-                  ))}
-                </ul>
-              )
-            }}
-          />
-          <XAxis
-            dataKey="name"
-            axisLine={{ stroke: Color.borderBase, strokeWidth: 1 }}
-            tickLine={false}
-          />
-          <YAxis axisLine={false} tickLine={false} />
-          <CartesianGrid
-            vertical={false}
-            stroke={Color.borderBase}
-            strokeDasharray="3 3"
-          />
-          <Tooltip
-            wrapperStyle={{
-              border: 'none',
-              boxShadow: '4px 4px 40px rgba(0, 0, 0, 0.05)',
-            }}
-            content={content => {
-              const list = !content.payload ? (
-                <div />
-              ) : (
-                content.payload.map((item, key) => (
-                  <li key={key} className={styles.tipitem}>
-                    <span
-                      className={styles.radiusdot}
-                      style={{ background: item.color }}
-                    />
-                    {`${item.name}:${item.value}`}
-                  </li>
-                ))
-              )
-              return (
-                <div className={styles.tooltip}>
-                  <p className={styles.tiptitle}>{content.label}</p>
-                  <ul>{list}</ul>
-                </div>
-              )
-            }}
-          />
-          <Area
-            type="monotone"
-            dataKey="Our company"
-            stroke={Color.grass}
-            fill={Color.grass}
-            strokeWidth={2}
-            dot={{ fill: '#fff' }}
-            activeDot={{ r: 5, fill: '#fff', stroke: Color.green }}
-          />
-          <Area
-            type="monotone"
-            dataKey="Our competition"
-            stroke={Color.sky}
-            fill={Color.sky}
-            strokeWidth={2}
-            dot={{ fill: '#fff' }}
-            activeDot={{ r: 5, fill: '#fff', stroke: Color.blue }}
-          />
-        </AreaChart>
-      </ResponsiveContainer>
-    </div>
+    <div />
+    // <div
+    //   // the styling for the div if needed in the future
+    //   className={styles.sales}
+    // >
+    //   {/* <div className={styles.title}>JOB RETENTION</div>
+    //   <ResponsiveContainer minHeight={360}>
+    //     <AreaChart data={data}>
+    //       <Legend
+    //         verticalAlign="top"
+    //         content={prop => {
+    //           const { payload } = prop
+    //           return (
+    //             <ul
+    //               className={classnames({
+    //                 [styles.legend]: true,
+    //                 clearfix: true,
+    //               })}
+    //             >
+    //               {payload.map((item, key) => (
+    //                 <li key={key}>
+    //                   <span
+    //                     className={styles.radiusdot}
+    //                     style={{ background: item.color }}
+    //                   />
+    //                   {item.value}
+    //                 </li>
+    //               ))}
+    //             </ul>
+    //           )
+    //         }}
+    //       />
+    //       <XAxis
+    //         dataKey="name"
+    //         axisLine={{ stroke: Color.borderBase, strokeWidth: 1 }}
+    //         tickLine={false}
+    //       />
+    //       <YAxis axisLine={false} tickLine={false} />
+    //       <CartesianGrid
+    //         vertical={false}
+    //         stroke={Color.borderBase}
+    //         strokeDasharray="3 3"
+    //       />
+    //       <Tooltip
+    //         wrapperStyle={{
+    //           border: 'none',
+    //           boxShadow: '4px 4px 40px rgba(0, 0, 0, 0.05)',
+    //         }}
+    //         content={content => {
+    //           const list = !content.payload ? (
+    //             <div />
+    //           ) : (
+    //             content.payload.map((item, key) => (
+    //               <li key={key} className={styles.tipitem}>
+    //                 <span
+    //                   className={styles.radiusdot}
+    //                   style={{ background: item.color }}
+    //                 />
+    //                 {`${item.name}:${item.value}`}
+    //               </li>
+    //             ))
+    //           )
+    //           return (
+    //             <div className={styles.tooltip}>
+    //               <p className={styles.tiptitle}>{content.label}</p>
+    //               <ul>{list}</ul>
+    //             </div>
+    //           )
+    //         }}
+    //       />
+    //       <Area
+    //         type="monotone"
+    //         dataKey="Our company"
+    //         stroke={Color.grass}
+    //         fill={Color.grass}
+    //         strokeWidth={2}
+    //         dot={{ fill: '#fff' }}
+    //         activeDot={{ r: 5, fill: '#fff', stroke: Color.green }}
+    //       />
+    //       <Area
+    //         type="monotone"
+    //         dataKey="Our competition"
+    //         stroke={Color.sky}
+    //         fill={Color.sky}
+    //         strokeWidth={2}
+    //         dot={{ fill: '#fff' }}
+    //         activeDot={{ r: 5, fill: '#fff', stroke: Color.blue }}
+    //       />
+    //     </AreaChart>
+    //   </ResponsiveContainer> */}
+    // </div>
   )
 }
 
