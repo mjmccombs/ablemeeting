@@ -4,12 +4,12 @@ const { ApiPrefix, Color } = Constant
 
 // MAIN DASHBOARD
 const Dashboard = Mock.mock({
-  'sales|8': [
+  'sales|12': [
     {
-      'name|+1': 2011,
-      'Interviews Initiated|100-150': 1,
+      'name|+1': 'Week',
+      'Interviews Initiated|1-25': 1,
       'Objectives Completed|150-300': 1,
-      'Interviews Completed|30-180': 1,
+      'Interviews Completed|1-25': 1,
     },
   ],
   cpu: {
@@ -81,7 +81,7 @@ const Dashboard = Mock.mock({
         )
       },
       date() {
-        return ` ${Mock.Random.date(' ')} ${Mock.Random.time(' ')}`
+        return ` ${Mock.Random.date('MM-dd')} ${Mock.Random.time('HH')}`
       },
     },
   ],
@@ -93,7 +93,7 @@ const Dashboard = Mock.mock({
       date() {
         return `${Mock.Random.integer(2019, 2019)}-${Mock.Random.date(
           'MM-dd'
-        )} ${Mock.Random.time('HH:mm')}`
+        )} ${Mock.Random.time('HH')}`
       },
       'price|10-200.1-2': 1,
     },

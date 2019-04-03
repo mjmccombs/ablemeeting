@@ -4,6 +4,9 @@ import { Table, Tag } from 'antd'
 import { Color } from 'utils'
 import styles from './comments.less'
 
+const location = {
+  text: 'Starbucks',
+}
 const status = {
   1: {
     color: Color.green,

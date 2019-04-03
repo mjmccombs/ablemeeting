@@ -5,6 +5,12 @@ import { Table, Tag } from 'antd'
 import { Color } from 'utils'
 import styles from './recentSales.less'
 
+const location = {
+  1: {
+    text: 'Starbucks',
+  },
+}
+
 const status = {
   1: {
     color: Color.green,
@@ -31,16 +37,17 @@ function RecentSales({ data }) {
       dataIndex: 'name',
     },
     {
-      title: 'STATUS',
-      dataIndex: 'status',
-      render: text => <Tag color={status[text].color}>{status[text].text}</Tag>,
+      title: 'COMPANY',
+      // dataIndex: 'location',
+      // render: text => <Tag>{location.text}</Tag>,
+      // render: text => <Tag color={status[text].color}>{status[text].text}</Tag>,
     },
     {
       title: 'DATE',
       dataIndex: 'date',
-      render: text => moment(text).format('YYYY-MM-DD'),
+      render: text => moment(text).format('MM-DD'),
     },
-    ]
+  ]
   return (
     <div className={styles.recentsales}>
       <Table

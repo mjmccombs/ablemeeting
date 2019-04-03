@@ -51,7 +51,7 @@ class Dashboard extends PureComponent {
 
     const numberCards = numbers.map((item, key) => (
       <Col key={key} lg={6} md={12}>
-        <NumberCard {...item} />
+        {/* <NumberCard {...item} /> */}
       </Col>
     ))
 
@@ -122,9 +122,7 @@ class Dashboard extends PureComponent {
               bordered={false}
               {...bodyStyle}
             >
-              <ScrollBar>
-                <Comments data={comments} />
-              </ScrollBar>
+              <RecentSales data={recentSales} />
             </Card>
           </Col>{' '}
           <Col lg={12} md={24}>

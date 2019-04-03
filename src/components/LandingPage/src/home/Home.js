@@ -39,7 +39,7 @@ class FullPageIntroWithFixedNavbar extends React.Component {
             <div className="row">
               <div className="col-xs-6 col-sm-3 col-md-2">
                 <div className="logo">
-                  {' '}
+                  {''}
                   <a href="#top">
                     <img
                       alt="img"
